@@ -69,7 +69,7 @@ class Vehicle {
 
     autoDrive()
     {
-      
+
     }
 
     typeOfVehicle(wheels) {

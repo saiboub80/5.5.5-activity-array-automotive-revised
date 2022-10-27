@@ -111,10 +111,15 @@ class Car extends Vehicle {
 
 let myCar = new Car('mercury', 'rad_sedan', '2002', 'white', 50000)
 
+
+console.log(myCar.loadPassenger(5))
+console.log(myCar.checkService())
 myCar.start()
-myCar.loadPassenger(5)
 myCar.stop()
-myCar.checkService()
+console.log(myCar.fuel)
+myCar.start()
+myCar.accelerate()
+console.log(myCar.fuel)
+
 
 console.log(myCar)
-
