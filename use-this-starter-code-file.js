@@ -55,16 +55,7 @@ class Vehicle {
 			this.started = false;
 	}
 
-	loadPassenger() {
-
-	}
-
-	scheduleService() {
-
-	}
-
-
-	//optional methods to code
+	//optional methods to code for the Vehicle base class
 
 	drive() {
 			accelerate();
