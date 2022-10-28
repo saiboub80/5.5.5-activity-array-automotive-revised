@@ -97,3 +97,16 @@ class Vehicle {
 
 let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
+
+
+//create new instances of the Car class here
+
+
+
+
+
+
+
+//Bonus
+
+//Code the Truck subclass here
