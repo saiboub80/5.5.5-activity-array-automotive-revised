@@ -53,69 +53,80 @@ class Vehicle {
 	}
 	stop() {
 		this.started = false;
+		console.log("Engine is off")
 	}
 
 	//optional methods to code for the Vehicle base class
-
-	drive() {
-		accelerate();
-	}
-	brake() {
-		decelerate();
-	}
-
-	autoPark() {}
-
-	autoDrive() {}
-
-	typeOfVehicle(wheels) {
-		if (this.numberOfWheels == 8 && 8 == wheels) {
-			console.log(this.model + " " + this.make + " is a Truck");
-		} else if (this.numberOfWheels == 4 && 4 == wheels) {
-			console.log(this.model + " " + this.make + " is a CAr");
-		} else if (this.numberOfWheels == 2 && 2 == wheels) {
-			console.log(this.model + " " + this.make + " is a Bike");
+	typeOfVehicle() {
+		if (this.numberOfWheels == 8) {
+				console.log(this.model + " " + this.make + " is a Truck");
+		} else if (this.numberOfWheels == 4) {
+				console.log(this.model + " " + this.make + " is a Car");
+		} else if (this.numberOfWheels == 2) {
+				console.log(this.model + " " + this.make + " is a Bike");
 		} else {
-			console.log("Unknown type of vehicle");
+				console.log("Unknown type of vehicle");
 		}
-	}
+}
 }
 
-//Code the Car subclass here, i.e. class Car extends Vehicle ...
+class Car extends Vehicle {
+constructor(make, model, year, color, mileage) {
+		super(make, model, year, color, mileage);
+		this.maxPassengers = 5;
+		this.passenger = 0;
+		this.numberOfWheels = 4;
+		this.maxSpeed = 160;
+		this.fuel = 10;
+		this.scheduleService = false;
+}
+
+checkService() {
+		if (this.mileage > 30000) {
+				this.scheduleService = true
+				return this.scheduleService;
+		}
+}
+
+start() {
+		if (this.fuel > 0) {
+				console.log("engine has started.");
+				return this.started = true
+		} else {
+				console.log("no fuel");
+				return this.started = false;
+		}
+}
+
+loadPassenger(num) {
+		if (this.passenger < this.maxPassengers) {
+				if ((num + this.passenger) <= this.maxPassengers) {
+						this.passenger = num;
+						return this.passenger;
+				} else {
+						console.log(this.model + " " + this.make + " not have enough space to take all passengers.");
+
+				}
+		} else {
+				console.log(this.model + " " + this.make + " is full");
+		}
+}
 
 
+}
 
 
+let myCar = new Car('mercury', 'rad_sedan', '2002', 'white', 50000)
 
 
+console.log(myCar.loadPassenger(5))
+console.log(myCar.checkService())
+myCar.start()
+myCar.stop()
+console.log(myCar.fuel)
+myCar.start()
+myCar.accelerate()
+console.log(myCar.fuel)
 
 
-
-//Creating Instances and Testing Them
-
-
-//This is an instance of the Vehicle class. You can use it to test your code for the Vehicle class.
-
-let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
-
-console.log(v.make);
-
-//You can use the same instance "v" of the Vehicle class and dot notation to add properties of the Car class to it, but you should also create at least one totally new instance with just the Car class and test it out with Vehicle and Car methods (such as with v.make shown above).
-
-
-//Create new instances of the Car class and test them here:
-
-
-
-
-
-
-
-
-
-
-
-
-//Bonus (optional of course)
-
-//Code the Truck subclass of Vehicle here
+console.log(myCar)
